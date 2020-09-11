@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.page-title {
+    color: white;
+    text-align: center;
+    margin: 0;
+}
