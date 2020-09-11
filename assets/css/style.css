@@ -38,7 +38,15 @@ span {
     margin-right: 0;
 }
 
+.list-cities {
+    width: 300px;
+    padding-top: 20px;
+}
+
 .search-history {
     border: 1px solid grey;
     list-style: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px
 }
