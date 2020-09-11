@@ -38,3 +38,7 @@ span {
     margin-right: 0;
 }
 
+.search-history {
+    border: 1px solid grey;
+    list-style: none;
+}
