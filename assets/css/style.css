@@ -10,8 +10,31 @@ header {
     padding-bottom: 30px;
 }
 
+h2 {
+    padding-top: 20px;
+}
+
+button {
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+span {
+    color: white;
+}
+
 .page-title {
     color: white;
     text-align: center;
     margin: 0;
 }
+
+.search-cities {
+    background-color: cornsilk;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-right: 0;
+}
+
