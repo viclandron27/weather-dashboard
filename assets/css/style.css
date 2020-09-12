@@ -75,3 +75,9 @@ span {
     margin-left: 10px;
     padding-left: 10px;
 }
+
+.card {
+    background-color: darkblue;
+    border-radius: 5px;
+    border: 1px solid black;
+}

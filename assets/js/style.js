@@ -70,18 +70,18 @@ function cityInput() {
         currentDiv.append(windSpeed)
 
         //UV Index URL
-        return fetch("http://api.openweathermap.org/data/2.5/uvi?lat=" + 
-        currentForcast.coord.lat + 
-        "&lon=" + currentForcast.coord.lon + 
-        "appid=5abd2f3f31f16b1358797c5a21b9e285")
-        .then(function(response) {
-            return response.json();
-          })
-          .then(function(response) {
-            var uvIndex = document.createElement("p")
-            uvIndex.innerHTML = "UV Index: " + response.value
-            currentDiv.append(uvIndex)
-          })
+        //return fetch("http://api.openweathermap.org/data/2.5/uvi?lat=" + 
+        //currentForcast.coord.lat + 
+        //"&lon=" + currentForcast.coord.lon + 
+        //"appid=5abd2f3f31f16b1358797c5a21b9e285")
+        //.then(function(response) {
+         //   return response.json();
+         // })
+         // .then(function(response) {
+         //   var uvIndex = document.createElement("p")
+         //   uvIndex.innerHTML = "UV Index: " + response.value
+         //   currentDiv.append(uvIndex)
+         // })
     })
 
     //console.log(currentForcast);
@@ -96,6 +96,7 @@ function cityInput() {
      .then(function(fiveDayForcast){
          console.log(fiveDayForcast);
         var cityForcastEl = document.querySelector("#five-day")
+        cityForcastEl.innerHTML='';
 
         //create div for 5 day forcast
         var fiveDayDiv = document.createElement("div")
@@ -110,7 +111,19 @@ function cityInput() {
         fiveDayDiv.appendChild(fiveDayTitle);
 
         //create loop for creating cards for each day
-       // for (i = 0, i)
+       for (i = 0; fiveDayForcast.list[i] < 5 && fiveDayForcast.list[i] != 1; i++) {
+           var eachDayForcast = document.createElement("div")
+           eachDayForcast.setAttribute("class", "card")
+           
+           var date = new Date(fiveDayForcast.list[i].dt * 1000);
+
+           eachDayForcast.innerHTML = date.toLocaleDateString("en-US")
+                //"<p>Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F<p>"
+                //"<p>Humidity: " + fiveDayForcast.main.humidity "<p>" 
+       }
+       
+       fiveDayDiv.appendChild(eachDayForcast);
+       console.log(fiveDayForcast.list[i]);
 
 
     })
