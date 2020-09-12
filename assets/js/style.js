@@ -111,7 +111,7 @@ function cityInput() {
         fiveDayDiv.appendChild(fiveDayTitle);
 
         //create loop for creating cards for each day
-       for (i = 0; fiveDayForcast.list[i] < 5 && fiveDayForcast.list[i] != 1; i++) {
+       for (i = 1; i < fiveDayForcast.list.length; i++) {
            var eachDayForcast = document.createElement("div")
            eachDayForcast.setAttribute("class", "card")
            
@@ -120,9 +120,11 @@ function cityInput() {
            eachDayForcast.innerHTML = date.toLocaleDateString("en-US")
                 //"<p>Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F<p>"
                 //"<p>Humidity: " + fiveDayForcast.main.humidity "<p>" 
-       }
-       
-       fiveDayDiv.appendChild(eachDayForcast);
+            
+           fiveDayDiv.appendChild(eachDayForcast);
+        }
+
+      
        console.log(fiveDayForcast.list[i]);
 
 
