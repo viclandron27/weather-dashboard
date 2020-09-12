@@ -43,17 +43,12 @@ function cityInput() {
         //display city info on screen (city name, the date, an icon representation 
         //of weather conditions, the temperature, the humidity, the wind speed, and the UV index)
        
-        //grab city name, date and display
+        //grab city name, date, icon and display
         var cityName = document.createElement("h2")  
         var date = new Date(currentForcast.dt * 1000)
         cityName.innerHTML = currentForcast.name + " " + date.toLocaleDateString("en-US") +
         " " + "<img src='http://openweathermap.org/img/wn/" + currentForcast.weather[0].icon + "@2x.png'>"
         currentDiv.append(cityName);
-
-    
-
-
-        //grab icon
 
         //grab temperature
         var temp = document.createElement("p")
@@ -105,7 +100,7 @@ function cityInput() {
         cityForcastEl.appendChild(fiveDayDiv);
 
         //show title
-        var fiveDayTitle = document.createElement("h2")
+        var fiveDayTitle = document.createElement("h3")
         fiveDayTitle.innerHTML = "5 Day Forcast:"
 
         fiveDayDiv.appendChild(fiveDayTitle);
@@ -116,12 +111,24 @@ function cityInput() {
             var eachDayForcast = document.createElement("div")
             eachDayForcast.setAttribute("class", "card")
             
+            //date
+            var futureDate = document.createElement("h4")
             var date = new Date(fiveDayForcast.list[i].dt * 1000);
-
-            eachDayForcast.innerHTML = date.toLocaleDateString("en-US")
-                    //"<p>Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F<p>"
-                    //"<p>Humidity: " + fiveDayForcast.main.humidity "<p>" 
-                
+            futureDate.innerHTML = date.toLocaleDateString("en-US") + 
+            "<img src='http://openweathermap.org/img/wn/" + fiveDayForcast.list[i].weather.icon + "@2x.png'>"
+            eachDayForcast.appendChild(futureDate)
+            
+            //temp
+            var futureTemp = document.createElement("p")
+            futureTemp.innerHTML = "Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F" 
+            eachDayForcast.appendChild(futureTemp)       
+            
+            //humidity
+            var futureHumidity = document.createElement("p")
+            futureHumidity.innerHTML = "Humidity: " + fiveDayForcast.list[i].main.humidity + "%"
+            eachDayForcast.appendChild(futureHumidity)
+            
+            //append all elements to div
             fiveDayDiv.appendChild(eachDayForcast);
            }
         }

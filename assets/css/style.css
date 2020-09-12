@@ -73,7 +73,10 @@ span {
     /*border: 1px solid grey;*/
     margin-top: 10px;
     margin-left: 10px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .card {
@@ -81,4 +84,8 @@ span {
     border-radius: 5px;
     border: 1px solid black;
     color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
