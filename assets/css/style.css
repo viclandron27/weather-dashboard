@@ -52,6 +52,10 @@ span {
     color: grey;
 }
 
+.city-forcast {
+    padding-top: 15px;
+}
+
 .current-forcast {
     border: 1px solid grey;
     border-radius: 5px;

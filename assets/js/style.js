@@ -42,7 +42,7 @@ function cityInput() {
 
         //grab city name and display
         var cityName = document.createElement("h2")  
-        cityName.innerHTML = currentForcast.name + currentForcast.weather.icon
+        cityName.innerHTML = currentForcast.name
         currentDiv.append(cityName);
 
         //grab date
@@ -76,7 +76,9 @@ function cityInput() {
     console.log(currentForcast);
 
     //fetch 5 day forcast
-    //var fiveDayForcast = fetch("http://")
+    var fiveDayForcast = fetch("http://api.openweathermap.org/data/2.5/forecast?q=" +
+    city + 
+    "&appid=5abd2f3f31f16b1358797c5a21b9e285&units=imperial")
 
     //display city info on screen (city name, the date, an icon representation 
     //of weather conditions, the temperature, the humidity, the wind speed, and the UV index)
