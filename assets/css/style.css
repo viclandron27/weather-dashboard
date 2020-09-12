@@ -57,7 +57,19 @@ span {
 }
 
 .current-forcast {
+    
+}
+
+.current-city-forcast {
     border: 1px solid grey;
     border-radius: 5px;
     padding-left: 20px;
+    padding-right: 700px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.five-day {
+    border: 1px solid grey;
+    margin-top: 10px;
 }
