@@ -43,12 +43,15 @@ function cityInput() {
         //display city info on screen (city name, the date, an icon representation 
         //of weather conditions, the temperature, the humidity, the wind speed, and the UV index)
        
-        //grab city name and display
+        //grab city name, date and display
         var cityName = document.createElement("h2")  
-        cityName.innerHTML = currentForcast.name
+        var date = new Date(currentForcast.dt * 1000)
+        cityName.innerHTML = currentForcast.name + " " + date.toLocaleDateString("en-US") +
+        " " + "<img src='http://openweathermap.org/img/wn/" + currentForcast.weather[0].icon + "@2x.png'>"
         currentDiv.append(cityName);
 
-        //grab date
+    
+
 
         //grab icon
 
@@ -65,6 +68,8 @@ function cityInput() {
         var windSpeed = document.createElement("p")
         windSpeed.innerHTML = "Wind Speed: " + currentForcast.wind.speed + " MPH"
         currentDiv.append(windSpeed)
+
+        //UV Index URL
 
         //uv index
         var uvIndex = document.createElement("p")
@@ -94,6 +99,12 @@ function cityInput() {
         fiveDayDiv.setAttribute("class", "five-day")
 
         cityForcastEl.appendChild(fiveDayDiv);
+
+        //show title
+        var fiveDayTitle = document.createElement("h2")
+        fiveDayTitle.innerHTML = "5 Day Forcast:"
+
+        fiveDayDiv.appendChild(fiveDayTitle);
 
         //create loop for creating cards for each day
        // for (i = 0, i)

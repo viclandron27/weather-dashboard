@@ -64,12 +64,14 @@ span {
     border: 1px solid grey;
     border-radius: 5px;
     padding-left: 20px;
-    padding-right: 700px;
+    padding-right: 450px;
     margin-left: 10px;
     margin-top: 10px;
 }
 
 .five-day {
-    border: 1px solid grey;
+    /*border: 1px solid grey;*/
     margin-top: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
 }
