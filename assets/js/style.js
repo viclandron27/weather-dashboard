@@ -6,7 +6,7 @@ function cityInput() {
     
     //grab user input
     var city = document.querySelector("#search-bar").value;
-    console.log(city);
+    //console.log(city);
 
     //push city to local storage as array
     localStorage.setItem("cities", JSON.stringify(city));
@@ -32,7 +32,7 @@ function cityInput() {
         var cityForcastEl = document.querySelector("#city-forcast")
         cityForcastEl.innerHTML='';
 
-        console.log(currentForcast.name)
+        //console.log(currentForcast.name)
 
         //create div for current forcast
         var currentDiv = document.createElement("div");
@@ -42,7 +42,7 @@ function cityInput() {
 
         //grab city name and display
         var cityName = document.createElement("h2")  
-        cityName.innerHTML = currentForcast.name
+        cityName.innerHTML = currentForcast.name + currentForcast.weather.icon
         currentDiv.append(cityName);
 
         //grab date
@@ -54,6 +54,20 @@ function cityInput() {
         temp.innerHTML = "Temperature: " + currentForcast.main.temp + '&deg;F <br>'
         currentDiv.append(temp);
         //grab humidity
+        var humidity = document.createElement("p")
+        humidity.innerHTML = "Humidity: " + currentForcast.main.humidity
+        currentDiv.append(humidity)
+
+        //grab wind speed
+        var windSpeed = document.createElement("p")
+        windSpeed.innerHTML = "Wind Speed: " + currentForcast.wind.speed + " MPH"
+        currentDiv.append(windSpeed)
+
+        //uv index
+        var uvIndex = document.createElement("p")
+        uvIndex.innerHTML = "UV Index: "
+        currentDiv.append(uvIndex)
+
 
 
         //cityForcastEl.append()
