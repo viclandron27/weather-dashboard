@@ -100,10 +100,12 @@ function cityInput() {
         cityForcastEl.appendChild(fiveDayDiv);
 
         //show title
+        var fiveDayTitleDiv = document.querySelector("#five-day-title")
+
         var fiveDayTitle = document.createElement("h3")
         fiveDayTitle.innerHTML = "5 Day Forcast:"
 
-        fiveDayDiv.appendChild(fiveDayTitle);
+        fiveDayTitleDiv.appendChild(fiveDayTitle);
 
         //create loop for creating cards for each day
        for (i = 0; i < fiveDayForcast.list.length; i++) {

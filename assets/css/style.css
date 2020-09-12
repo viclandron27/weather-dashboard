@@ -69,6 +69,18 @@ span {
     margin-top: 10px;
 }
 
+.card {
+    background-color: darkblue;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-right: 10px;
+}
+
 .five-day {
     /*border: 1px solid grey;*/
     margin-top: 10px;
@@ -79,13 +91,7 @@ span {
     align-content: space-between;
 }
 
-.card {
-    background-color: darkblue;
-    border-radius: 5px;
-    border: 1px solid black;
-    color: white;
+#five-day-title {
     padding-left: 10px;
     padding-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
 }
