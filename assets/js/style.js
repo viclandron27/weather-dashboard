@@ -111,22 +111,21 @@ function cityInput() {
         fiveDayDiv.appendChild(fiveDayTitle);
 
         //create loop for creating cards for each day
-       for (i = 1; i < fiveDayForcast.list.length; i++) {
-           var eachDayForcast = document.createElement("div")
-           eachDayForcast.setAttribute("class", "card")
-           
-           var date = new Date(fiveDayForcast.list[i].dt * 1000);
-
-           eachDayForcast.innerHTML = date.toLocaleDateString("en-US")
-                //"<p>Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F<p>"
-                //"<p>Humidity: " + fiveDayForcast.main.humidity "<p>" 
+       for (i = 0; i < fiveDayForcast.list.length; i++) {
+           if (i === 2 || i === 10 || i === 18 || i === 26 || i === 34 ) {
+            var eachDayForcast = document.createElement("div")
+            eachDayForcast.setAttribute("class", "card")
             
-           fiveDayDiv.appendChild(eachDayForcast);
+            var date = new Date(fiveDayForcast.list[i].dt * 1000);
+
+            eachDayForcast.innerHTML = date.toLocaleDateString("en-US")
+                    //"<p>Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F<p>"
+                    //"<p>Humidity: " + fiveDayForcast.main.humidity "<p>" 
+                
+            fiveDayDiv.appendChild(eachDayForcast);
+           }
         }
-
-      
-       console.log(fiveDayForcast.list[i]);
-
+        
 
     })
 
