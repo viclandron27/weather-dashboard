@@ -46,7 +46,7 @@ function cityInput() {
         //grab city name, date, icon and display
         var cityName = document.createElement("h2")  
         var date = new Date(currentForcast.dt * 1000)
-        cityName.innerHTML = currentForcast.name + " " + date.toLocaleDateString("en-US") +
+        cityName.innerHTML = currentForcast.name + " " + "(" + date.toLocaleDateString("en-US") + ")" +
         " " + "<img src='http://openweathermap.org/img/wn/" + currentForcast.weather[0].icon + "@2x.png'>"
         currentDiv.append(cityName);
 
@@ -101,11 +101,7 @@ function cityInput() {
 
         //show title
         var fiveDayTitleDiv = document.querySelector("#five-day-title")
-
-        var fiveDayTitle = document.createElement("h3")
-        fiveDayTitle.innerHTML = "5 Day Forcast:"
-
-        fiveDayTitleDiv.appendChild(fiveDayTitle);
+        fiveDayTitleDiv.removeAttribute("class", "hide")
 
         //create loop for creating cards for each day
        for (i = 0; i < fiveDayForcast.list.length; i++) {
@@ -116,10 +112,11 @@ function cityInput() {
             //date
             var futureDate = document.createElement("h4")
             var date = new Date(fiveDayForcast.list[i].dt * 1000);
-            futureDate.innerHTML = date.toLocaleDateString("en-US") + 
-            "<img src='http://openweathermap.org/img/wn/" + fiveDayForcast.list[i].weather.icon + "@2x.png'>"
+            futureDate.innerHTML = date.toLocaleDateString("en-US") + "<br>" +
+            "<img src='http://openweathermap.org/img/wn/" + fiveDayForcast.list[i].weather[0].icon + "@2x.png'>"
             eachDayForcast.appendChild(futureDate)
             
+
             //temp
             var futureTemp = document.createElement("p")
             futureTemp.innerHTML = "Temp: " + fiveDayForcast.list[i].main.temp + "&deg;F" 

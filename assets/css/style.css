@@ -25,6 +25,10 @@ span {
     color: white;
 }
 
+.hide {
+    display: none;
+}
+
 .page-title {
     color: white;
     text-align: center;
