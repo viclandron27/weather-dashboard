@@ -1,11 +1,12 @@
 var searchCities = document.querySelector(".search-button");
 var cityList = document.querySelector(".list-cities")
+var city = document.querySelector("#search-bar").value;
 
 function cityInput() {
     //check if user inputted a value or empty string
     
     //grab user input
-    var city = document.querySelector("#search-bar").value;
+    
 
     //create empty array 
     var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
@@ -165,3 +166,7 @@ function cityInput() {
 searchCities.addEventListener("click", function() {
     cityInput();
 });
+
+city.addEventListener("click", function(){
+    console.log(hello);
+})
