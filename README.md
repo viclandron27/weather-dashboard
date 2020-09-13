@@ -13,7 +13,7 @@ This dashboard allows you to search for a city and shows you the current forcast
 ## Website
 
 
-![]()
+![](assets/screenshot.png)
 
 ## Contribution
 Made by Victoria Landron
