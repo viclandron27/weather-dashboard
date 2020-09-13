@@ -11,26 +11,28 @@ function cityInput() {
     //create empty array 
     var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
 
-    //push city into array
-    citiesArray.push(city)
+    if(citiesArray.indexOf(city) === 0) {
+        //push city into array
+        citiesArray.push(city)
 
-    //set array into localStorage
-    localStorage.setItem("cities", JSON.stringify(citiesArray));
+        //set array into localStorage
+        localStorage.setItem("cities", JSON.stringify(citiesArray));
 
-    //display city on the screen
-    var cityEl = document.createElement("li");
-    cityEl.setAttribute("class", "search-history")
-    cityEl.innerHTML = city
-    
-    cityList.appendChild(cityEl)
+        //display city on the screen
+        var cityEl = document.createElement("li");
+        cityEl.setAttribute("class", "search-history")
+        cityEl.innerHTML = city
+        
+        cityList.appendChild(cityEl)
 
-    var listItems = document.querySelector(".search-history");
+        var listItems = document.querySelectorAll(".search-history");
 
-    for (var i = 0; i < listItems.length; i++) {
-        listItems[i].addEventListener("click", function(){
-            console.log("city");
-        })
-    }
+        for (var i = 0; i < listItems.length; i++) {
+            listItems[i].addEventListener("click", function(){
+                cityInput(city);
+            })
+        }
+    }//end of if
 
 
     //fetch current forcast city info from API
