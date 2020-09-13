@@ -5,11 +5,21 @@ function cityInput() {
     //check if user inputted a value or empty string
     
     //grab user input
-    var city = document.querySelector("#search-bar").value;
+    var cityInput = document.querySelector("#search-bar").value;
+    var city = cityInput
     //console.log(city);
 
     //push city to local storage as array
-    localStorage.setItem("cities", JSON.stringify(city));
+    var searchHistory = JSON.parse(localStorage.getItem("cities"))
+    if (searchHistory != undefined) {
+        searchHistory[searchHistory.length] = city
+        localStorage.setItem("cities", JSON.stringify(city));
+    }
+    else{
+        var searchHistory = [city]
+        localStorage.setItem("cities", JSON.stringify(city));
+    }
+    
 
     //display city on the screen
     var cityEl = document.createElement("li");
@@ -17,7 +27,6 @@ function cityInput() {
     cityEl.innerHTML = city
     
     cityList.appendChild(cityEl)
-
 
     //fetch current forcast city info from API
     var currentForcast = fetch("http://api.openweathermap.org/data/2.5/weather?q=" + 
@@ -73,18 +82,27 @@ function cityInput() {
            return response.json();
          })
         .then(function(response) {
+            var uvIndexContainer = document.createElement("div")
+            uvIndexContainer.setAttribute("class", "uv-index")
+            currentDiv.append(uvIndexContainer)
+
            var uvIndex = document.createElement("p")
-           uvIndex.innerHTML = "UV Index: " + response.value 
-           currentDiv.append(uvIndex)
+           uvIndex.innerHTML = "UV Index: "
+           
+           var uvIndexNum = document.createElement("p")
+           uvIndexNum.innerHTML = response.value
+           
+           uvIndexContainer.append(uvIndex)
+           uvIndexContainer.append(uvIndexNum)
 
            if (response.value < 2.01) {
-               uvIndex.setAttribute("class", "favorable")
+               uvIndexNum.setAttribute("class", "favorable")
            }
            else if (response.value < 7.01) {
-               uvIndex.setAttribute("class", "moderate")
+               uvIndexNum.setAttribute("class", "moderate")
            }
            else {
-               uvIndex.setAttribute("class", "severe")
+               uvIndexNum.setAttribute("class", "severe")
            }
          })
     })
