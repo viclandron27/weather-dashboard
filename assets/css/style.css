@@ -73,6 +73,21 @@ span {
     margin-top: 10px;
 }
 
+.favorable {
+    background-color: greenyellow;
+    border-radius: 5px;
+}
+
+.moderate {
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+.severe {
+    background-color: tomato;
+    border-radius: 5px;
+}
+
 .card {
     background-color: darkblue;
     border-radius: 5px;

@@ -65,18 +65,28 @@ function cityInput() {
         currentDiv.append(windSpeed)
 
         //UV Index URL
-        //return fetch("http://api.openweathermap.org/data/2.5/uvi?lat=" + 
-        //currentForcast.coord.lat + 
-        //"&lon=" + currentForcast.coord.lon + 
-        //"appid=5abd2f3f31f16b1358797c5a21b9e285")
-        //.then(function(response) {
-         //   return response.json();
-         // })
-         // .then(function(response) {
-         //   var uvIndex = document.createElement("p")
-         //   uvIndex.innerHTML = "UV Index: " + response.value
-         //   currentDiv.append(uvIndex)
-         // })
+        return fetch("http://api.openweathermap.org/data/2.5/uvi?lat=" + 
+        currentForcast.coord.lat + 
+        "&lon=" + currentForcast.coord.lon + 
+        "&appid=5abd2f3f31f16b1358797c5a21b9e285")
+        .then(function(response) {
+           return response.json();
+         })
+        .then(function(response) {
+           var uvIndex = document.createElement("p")
+           uvIndex.innerHTML = "UV Index: " + response.value 
+           currentDiv.append(uvIndex)
+
+           if (response.value < 2.01) {
+               uvIndex.setAttribute("class", "favorable")
+           }
+           else if (response.value < 7.01) {
+               uvIndex.setAttribute("class", "moderate")
+           }
+           else {
+               uvIndex.setAttribute("class", "severe")
+           }
+         })
     })
 
     //console.log(currentForcast);
