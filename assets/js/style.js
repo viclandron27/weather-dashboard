@@ -8,7 +8,7 @@ function cityInput() {
     var city = document.querySelector("#search-bar").value;
 
     //create empty array 
-    var citiesArray = []
+    var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
 
     //push city into array
     citiesArray.push(city)
