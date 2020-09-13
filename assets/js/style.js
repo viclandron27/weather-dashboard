@@ -5,21 +5,16 @@ function cityInput() {
     //check if user inputted a value or empty string
     
     //grab user input
-    var cityInput = document.querySelector("#search-bar").value;
-    var city = cityInput
-    //console.log(city);
+    var city = document.querySelector("#search-bar").value;
 
-    //push city to local storage as array
-    var searchHistory = JSON.parse(localStorage.getItem("cities"))
-    if (searchHistory != undefined) {
-        searchHistory[searchHistory.length] = city
-        localStorage.setItem("cities", JSON.stringify(city));
-    }
-    else{
-        var searchHistory = [city]
-        localStorage.setItem("cities", JSON.stringify(city));
-    }
-    
+    //create empty array 
+    var citiesArray = []
+
+    //push city into array
+    citiesArray.push(city)
+
+    //set array into localStorage
+    localStorage.setItem("cities", JSON.stringify(citiesArray));
 
     //display city on the screen
     var cityEl = document.createElement("li");
