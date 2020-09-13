@@ -1,12 +1,12 @@
 var searchCities = document.querySelector(".search-button");
 var cityList = document.querySelector(".list-cities")
-var city = document.querySelector("#search-bar").value;
+
 
 function cityInput() {
     //check if user inputted a value or empty string
     
     //grab user input
-    
+    var city = document.querySelector("#search-bar").value;
 
     //create empty array 
     var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
@@ -23,6 +23,15 @@ function cityInput() {
     cityEl.innerHTML = city
     
     cityList.appendChild(cityEl)
+
+    var listItems = document.querySelector(".search-history");
+
+    for (var i = 0; i < listItems.length; i++) {
+        listItems[i].addEventListener("click", function(){
+            console.log("city");
+        })
+    }
+
 
     //fetch current forcast city info from API
     var currentForcast = fetch("http://api.openweathermap.org/data/2.5/weather?q=" + 
@@ -159,6 +168,7 @@ function cityInput() {
 
     })
 
+
     
 }
 
@@ -167,6 +177,3 @@ searchCities.addEventListener("click", function() {
     cityInput();
 });
 
-city.addEventListener("click", function(){
-    console.log(hello);
-})
