@@ -2,16 +2,12 @@ var searchCities = document.querySelector(".search-button");
 var cityList = document.querySelector(".list-cities")
 
 
-function cityInput() {
-    //check if user inputted a value or empty string
+function cityInput(city) {
     
-    //grab user input
-    var city = document.querySelector("#search-bar").value;
-
     //create empty array 
     var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
 
-    if(citiesArray.indexOf(city) === 0) {
+    if(citiesArray.indexOf(city) === -1) {
         //push city into array
         citiesArray.push(city)
 
@@ -29,6 +25,8 @@ function cityInput() {
 
         for (var i = 0; i < listItems.length; i++) {
             listItems[i].addEventListener("click", function(){
+                var city = event.target.textContent
+                console.log(city);
                 cityInput(city);
             })
         }
@@ -176,6 +174,9 @@ function cityInput() {
 
 
 searchCities.addEventListener("click", function() {
-    cityInput();
+    //grab user input
+    var city = document.querySelector("#search-bar").value;
+
+    cityInput(city);
 });
 
