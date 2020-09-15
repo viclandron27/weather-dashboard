@@ -34,7 +34,7 @@ function cityInput(city) {
 
 
     //fetch current forcast city info from API
-    var currentForcast = fetch("http://api.openweathermap.org/data/2.5/weather?q=" + 
+    var currentForcast = fetch("https://api.openweathermap.org/data/2.5/weather?q=" + 
     city + 
     "&appid=5abd2f3f31f16b1358797c5a21b9e285&units=imperial")
     .then(function(currentForcast){
@@ -79,7 +79,7 @@ function cityInput(city) {
         currentDiv.append(windSpeed)
 
         //UV Index URL
-        return fetch("http://api.openweathermap.org/data/2.5/uvi?lat=" + 
+        return fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + 
         currentForcast.coord.lat + 
         "&lon=" + currentForcast.coord.lon + 
         "&appid=5abd2f3f31f16b1358797c5a21b9e285")
@@ -115,7 +115,7 @@ function cityInput(city) {
     //console.log(currentForcast);
 
     //fetch 5 day forcast
-    var fiveDayForcast = fetch("http://api.openweathermap.org/data/2.5/forecast?q=" +
+    var fiveDayForcast = fetch("https://api.openweathermap.org/data/2.5/forecast?q=" +
     city + 
     "&appid=5abd2f3f31f16b1358797c5a21b9e285&units=imperial")
     .then(function(fiveDayForcast){
